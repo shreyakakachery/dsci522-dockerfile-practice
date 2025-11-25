@@ -3,8 +3,10 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - numpy=1.26.4
-  - pandas=2.2.2
-  - python=3.11
-  - mamba
-prefix: C:\Users\Muthu\miniforge3\envs\dsci522-docker
+  - conda-lock=3.0.4
+  - pandas=2.3.3
+  - pandera=0.26.1
+  - pip=25.3
+  - python=3.11.14
+  - pip:
+      - deepchecks==0.19.1
