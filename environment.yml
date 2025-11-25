@@ -6,4 +6,5 @@ dependencies:
   - numpy=1.26.4
   - pandas=2.2.2
   - python=3.11
+  - mamba
 prefix: C:\Users\Muthu\miniforge3\envs\dsci522-docker
