@@ -1,12 +1,8 @@
 FROM quay.io/jupyter/minimal-notebook:afe30f0c9ad8
 
-USER root
+COPY conda-linux-64.lock /tmp/conda-linux-64.lock
 
-RUN mamba install -c conda-forge conda-lock
-
-USER ${NB_UID}
-
-COPY conda-lock.yml /tmp/conda-lock.yml
-
-RUN conda-lock install --name myenv /tmp/conda-lock.yml && \
-    echo "conda activate myenv" >> ~/.bashrc    
+RUN conda update --quiet --file /tmp/conda-linux-64.lock
+RUN conda clean --all -y -f
+RUN fix-permissions "${CONDA_DIR}"
+RUN fix-permissions "/home/${NB_USER}"
